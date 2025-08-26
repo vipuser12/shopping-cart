@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up | Majestic Store</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;600;700&family=Jost:wght@300;400;500;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(90deg, rgba(76, 44, 15, 0.9), rgba(252, 128, 27, 0.9));
+      font-family: 'Jost', sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-bottom: 2px solid #D4AF37;
+      background: #fff;
+      width: 100%;
+    }
+
+    header .logo a {
+      text-decoration: none;
+      color: #1C1C1C;
+      font-size: 1.5rem;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Bodoni Moda', serif;
+    }
+
+    /* Container */
+    .signup-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 50px 20px;
+    }
+
+    .signup-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 40px;
+      border: 2px solid #D4AF37;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 460px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .signup-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .signup-header h2 {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #1C1C1C;
+      margin-bottom: 10px;
+    }
+
+    .signup-header p {
+      color: #555;
+      font-size: 0.9rem;
+      margin-bottom: 30px;
+    }
+
+    /* Form */
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .input-wrapper {
+      position: relative;
+    }
+
+    .input-wrapper input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 2px solid #D4AF37;
+      border-radius: 8px;
+      outline: none;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+
+    .input-wrapper input:focus {
+      border-color: #1C1C1C;
+    }
+
+    .input-wrapper label {
+      position: absolute;
+      top: -8px;
+      left: 12px;
+      background: #fff;
+      padding: 0 6px;
+      font-size: 0.8rem;
+      color: #D4AF37;
+      font-weight: bold;
+    }
+
+    .signup-btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background-color: #D4AF37;
+      color: #1C1C1C;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .signup-btn:hover {
+      background-color: #1C1C1C;
+      color: #fff;
+    }
+
+    .signup-link {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .signup-link a {
+      color: #D4AF37;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .signup-link a:hover {
+      color: #1C1C1C;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <a href="index.html">
+        <img src="https://themewagon.github.io/majestic-2/v1.0.0/assets/img/gallery/logo.png" alt="logo" width="40">
+        <span>Majestic</span>
+      </a>
+    </div>
+  </header>
+
+  <div class="signup-container">
+    <div class="signup-card">
+      <div class="signup-header">
+        <h2>Create Account</h2>
+        <p>Join us and start shopping today</p>
+      </div>
+
+      <form id="signupForm">
+        <div class="form-group">
+          <div class="input-wrapper">
+            <input type="text" id="fName" required>
+            <label for="fName">First Name</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-wrapper">
+            <input type="text" id="lName" required>
+            <label for="lName">Last Name</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-wrapper">
+            <input type="email" id="email" required>
+            <label for="email">Email Address</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-wrapper">
+            <input type="password" id="password" required>
+            <label for="password">Password</label>
+          </div>
+        </div>
+
+        <button type="submit" class="signup-btn">Sign Up</button>
+      </form>
+
+      <div class="signup-link">
+        <p>Already have an account? <a href="login.html">Login</a></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("signupForm");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const fName = document.getElementById("fName").value.trim();
+      const lName = document.getElementById("lName").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if (!fName || !lName || !email || !password) {
+        alert("Please fill in all fields!");
+        return;
+      }
+
+      const user = { firstName: fName, lastName: lName, email, password };
+
+      localStorage.setItem("user", JSON.stringify(user));
+
+      alert("Account created successfully!");
+      window.location.href = "login.html";
+    });
+  </script>
+</body>
+
+</html>

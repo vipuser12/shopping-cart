@@ -228,7 +228,7 @@
             const email = document.getElementById("email").value.trim();
             const password = document.getElementById("password").value.trim();
 
-            // هات بيانات المستخدم كـ Object
+
             const storedUser = JSON.parse(localStorage.getItem("user"));
 
             if (storedUser && email === storedUser.email && password === storedUser.password) {
